@@ -1,0 +1,4 @@
+[
+  {"source": "App-A", "target": "DB-1"},
+  {"source": "DB-1", "target": "Storage-1"}
+]
