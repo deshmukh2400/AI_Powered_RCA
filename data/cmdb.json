@@ -1,4 +1,72 @@
 [
-  {"source": "App-A", "target": "DB-1"},
-  {"source": "DB-1", "target": "Storage-1"}
+  {
+    "ci_id": "vm-web01",
+    "name": "Web Server VM",
+    "type": "vm",
+    "os": "Linux",
+    "depends_on": []
+  },
+  {
+    "ci_id": "web-app01",
+    "name": "Apache Web Server",
+    "type": "webserver",
+    "depends_on": ["vm-web01"]
+  },
+  {
+    "ci_id": "vm-app01",
+    "name": "App Server VM 1",
+    "type": "vm",
+    "os": "Linux",
+    "depends_on": []
+  },
+  {
+    "ci_id": "app-service01",
+    "name": "Tomcat App Server 1",
+    "type": "appserver",
+    "depends_on": ["vm-app01"]
+  },
+  {
+    "ci_id": "vm-app02",
+    "name": "App Server VM 2",
+    "type": "vm",
+    "os": "Linux",
+    "depends_on": []
+  },
+  {
+    "ci_id": "app-service02",
+    "name": "Tomcat App Server 2",
+    "type": "appserver",
+    "depends_on": ["vm-app02"]
+  },
+  {
+    "ci_id": "vm-db01",
+    "name": "Database VM",
+    "type": "vm",
+    "os": "Linux",
+    "depends_on": []
+  },
+  {
+    "ci_id": "db-service01",
+    "name": "PostgreSQL Database",
+    "type": "database",
+    "depends_on": ["vm-db01"]
+  },
+  {
+    "ci_id": "web-app01",
+    "name": "Apache Web Server",
+    "type": "webserver",
+    "depends_on": ["app-service01", "app-service02"]
+  },
+  {
+    "ci_id": "app-service01",
+    "name": "Tomcat App Server 1",
+    "type": "appserver",
+    "depends_on": ["db-service01"]
+  },
+  {
+    "ci_id": "app-service02",
+    "name": "Tomcat App Server 2",
+    "type": "appserver",
+    "depends_on": ["db-service01"]
+  }
 ]

@@ -1,0 +1,11 @@
+# AI Root Cause Analysis Demo
+
+This is a hackathon-ready prototype that ingests alerts and CMDB data to find potential root causes using graph analysis and optional GPT summaries.
+
+## To Run
+```bash
+pip install -r requirements.txt
+python src/main.py
+# OR
+streamlit run src/ui.py
+```
